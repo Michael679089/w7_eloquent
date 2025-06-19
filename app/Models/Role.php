@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    use HasFactory;
-    // ...existing code...
+    protected $fillable = ['role_name', 'description'];
+    public $timestamps = true;
+
+    public function userRoles() // a userrole has many Roles
+    {
+        return $this->hasMany(UserRole::class);
+    }
 }

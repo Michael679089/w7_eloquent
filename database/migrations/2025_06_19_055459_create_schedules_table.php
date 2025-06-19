@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string("day_of_week", 10);
+            $table->string("day_of_week");
             $table->dateTime("time_slot");
-            $table->string("room", 20);
+            $table->string("room");
             $table->integer("term");
         });
     }

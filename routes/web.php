@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DBController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DBController::class, 'showUsers']);

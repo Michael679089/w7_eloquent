@@ -1,14 +1,24 @@
 <?php
 
+// database/seeders/RoleSeeder.php
+
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Role;
+use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
 {
     public function run(): void
     {
-        Role::factory()->count(5)->create();
+        $roles = [
+            ['role_name' => 'admin', 'description' => 'System Administrator'],
+            ['role_name' => 'teacher', 'description' => 'Instructor with access to class records'],
+            ['role_name' => 'student', 'description' => 'Student user with limited access'],
+        ];
+
+        foreach ($roles as $role) {
+            Role::create($role);
+        }
     }
 }
